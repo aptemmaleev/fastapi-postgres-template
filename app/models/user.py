@@ -15,7 +15,7 @@ class User(BaseModel, table=True):
 
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
 
-    role: UserRole = Field(sa_column=Column(String, nullable=False))
+    role: UserRole = Field(default="USER", sa_column=Column(String, nullable=False))
 
     service_name: Optional[str] = Field(default=None, sa_column=Column(String))
 

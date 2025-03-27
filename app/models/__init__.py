@@ -1,5 +1,5 @@
 from .user import User
-from .token import Token
+from .token import Session
 from .enums import UserRole
 
-__all__ = ["User", "Token", "UserRole"]
+__all__ = ["User", "Session", "UserRole"]

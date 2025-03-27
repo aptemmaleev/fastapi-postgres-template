@@ -60,7 +60,7 @@ class BaseModel(SQLModel):
         return result.scalars().all()
 
     @classmethod
-    async def update_many(
+    async def update(
         cls: Type[T],
         session: AsyncSession,
         filter_kwargs: dict[str, Any],
@@ -80,7 +80,7 @@ class BaseModel(SQLModel):
         return result.scalar_one_or_none()
 
     @classmethod
-    async def delete_many(cls: Type[T], session: AsyncSession, **kwargs: Any) -> None:
+    async def delete(cls: Type[T], session: AsyncSession, **kwargs: Any) -> None:
         stmt = delete(cls).filter_by(**kwargs)
         await session.execute(stmt)
         await session.commit()
